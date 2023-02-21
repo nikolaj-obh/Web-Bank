@@ -41,6 +41,8 @@ public class Customer {
     private Integer zipCode;
     @Column(name = "email")
     private String email;
+    @Column(name = "password")
+    private String password;
     // TODO implement login with email & password
     // TODO find correct datatype for passwords
     // TODO add assigned employee to customer?
