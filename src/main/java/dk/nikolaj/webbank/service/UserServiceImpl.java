@@ -20,8 +20,16 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
     public List<User> listAllUsers() {
         return userRepository.findAll();
+    }
+
+    public void addUser(User user) {
+
     }
 
     public User getUser(Long id) {

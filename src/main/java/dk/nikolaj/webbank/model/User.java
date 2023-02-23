@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import dk.nikolaj.webbank.model.enums.Roles;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,4 +33,8 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @ElementCollection(targetClass = Roles.class)
+    @Enumerated(EnumType.STRING)
+    private Set<Roles> roles;
 }

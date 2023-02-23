@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 @RequestMapping("/account-api")
 public class AccountApiController {
 
-    AccountService accountService;
+    private final AccountService accountService;
 
     public AccountApiController(AccountService accountService) {
         this.accountService = accountService;
