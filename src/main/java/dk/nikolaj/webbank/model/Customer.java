@@ -41,6 +41,8 @@ public class Customer {
     private Integer zipCode;
     @Column(name = "email")
     private String email;
+    @Column(name = "username")
+    private String username;
     @Column(name = "password")
     private String password;
     // TODO implement login with email & password
