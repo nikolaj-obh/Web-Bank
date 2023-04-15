@@ -1,41 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './guards/auth.guard';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { Routes, RouterModule } from '@angular/router';
 
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-      {enableTracing: true} // <-- debugging purposes only
-    ),
-    MatFormFieldModule
-  ],
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
-    DashboardComponent,
     RegisterComponent,
-    HomeComponent
+    DashboardComponent
   ],
-  providers: [AuthGuard],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes)
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
